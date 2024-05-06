@@ -19,6 +19,9 @@ jobs:
         distribution: 'temurin'
         cache: maven
     
+    - name: Clear Maven Cache
+      run: mvn dependency:purge-local-repository
+
     - name: "installing dependencies"
       run: mvn clean install
 
