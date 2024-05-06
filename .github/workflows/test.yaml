@@ -20,7 +20,7 @@ jobs:
         cache: maven
     
     - name: "watching pwd"
-      run: pwd
+      run: ls -l && pwd
 
     - name: "running build test"
       run: mvn clean test
