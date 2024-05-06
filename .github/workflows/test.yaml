@@ -18,6 +18,9 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
         cache: maven
+    
+    - name: "watching pwd"
+      run: pwd
 
     - name: "running build test"
       run: mvn clean test
