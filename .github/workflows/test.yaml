@@ -19,8 +19,8 @@ jobs:
         distribution: 'temurin'
         cache: maven
     
-    - name: "watching pwd"
-      run: ls -l && pwd
+    - name: "installing dependencies"
+      run: mvn clean install
 
     - name: "running build test"
       run: mvn clean test
