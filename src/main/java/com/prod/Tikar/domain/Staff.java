@@ -1,27 +1,43 @@
 package com.prod.Tikar.domain;
 
+import java.util.List;
 
+import jakarta.persistence.*;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+// @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Getter
 @Setter
-public abstract class Staff{
+public class Staff {
+    public Staff(String fname, String lname, String password, Integer tel, Byte picture, List<Asset> assets,
+            StaffRole role) {
+        this.fName = fname;
+        this.lName = lname;
+        this.password = password;
+        this.tel = tel;
+        this.picture = picture;
+        // this.isAdmin = isAdmin;
+        // this.isManagement = isManagement;
+        // this.isExtern = isExtern;
+        this.assets = assets;
+        this.role = role;
+    }
+
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     long Id;
-    String fname,lname,password;
-    Integer  tel;
+    String fName, lName, password;
+    Integer tel;
     Byte picture;
-    
-   public abstract String getStaffType();
+
+    // Boolean isAdmin;
+    // Boolean isManagement;
+    // Boolean isExtern;
+    StaffRole role;
+    @OneToMany
+    List<Asset> assets;
+    // public abstract String getStaffType();
 }

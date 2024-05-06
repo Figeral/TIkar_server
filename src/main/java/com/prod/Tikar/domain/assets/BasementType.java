@@ -1,6 +1,6 @@
 package com.prod.Tikar.domain.assets;
 
-public enum Type {
+public enum BasementType {
     Appartement_vide,
     Appartement_Meubler,
     studio,
