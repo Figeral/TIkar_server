@@ -6,16 +6,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
-
 @Entity
 @Getter
 @Setter
-public class Lessor {
+public class Renter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     String fname,lname;
     Integer tel;
     Byte picture;
-    // todo: still have to implement the constructor, entity association with Asset abstract class
+
+    // todo: still have to implement the constructor, entity association with Rent and Asset abstract class
 }
