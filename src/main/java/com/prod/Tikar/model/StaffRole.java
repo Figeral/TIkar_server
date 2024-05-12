@@ -1,4 +1,4 @@
-package com.prod.Tikar.domain;
+package com.prod.Tikar.model;
 
 public enum StaffRole {
     Admin,

@@ -1,4 +1,4 @@
-package com.prod.Tikar.domain;
+package com.prod.Tikar.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

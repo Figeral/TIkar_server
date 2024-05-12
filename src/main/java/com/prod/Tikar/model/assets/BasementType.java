@@ -1,4 +1,4 @@
-package com.prod.Tikar.domain.assets;
+package com.prod.Tikar.model.assets;
 
 public enum BasementType {
     Appartement_vide,

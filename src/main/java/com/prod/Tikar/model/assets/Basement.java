@@ -1,4 +1,4 @@
-package com.prod.Tikar.domain.assets;
+package com.prod.Tikar.model.assets;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

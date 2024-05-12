@@ -1,11 +1,10 @@
-package com.prod.Tikar.domain.assets;
+package com.prod.Tikar.model.assets;
 
 import java.util.List;
 
-import com.prod.Tikar.domain.Asset;
-import com.prod.Tikar.domain.Lessor;
-
-import com.prod.Tikar.domain.Staff;
+import com.prod.Tikar.model.Asset;
+import com.prod.Tikar.model.Lessor;
+import com.prod.Tikar.model.Staff;
 
 import jakarta.persistence.*;
 import lombok.Getter;

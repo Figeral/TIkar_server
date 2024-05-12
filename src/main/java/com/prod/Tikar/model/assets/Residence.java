@@ -1,9 +1,8 @@
-package com.prod.Tikar.domain.assets;
+package com.prod.Tikar.model.assets;
 
-import com.prod.Tikar.domain.Asset;
-import com.prod.Tikar.domain.Lessor;
-
-import com.prod.Tikar.domain.Staff;
+import com.prod.Tikar.model.Asset;
+import com.prod.Tikar.model.Lessor;
+import com.prod.Tikar.model.Staff;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
