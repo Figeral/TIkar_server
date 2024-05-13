@@ -17,8 +17,8 @@ import lombok.Setter;
 public class Residence extends Asset {
 
     public Residence(Lessor lessor, Staff staff, int matricule, String name, String address, String description,
-            long surfaceArea, long estimatedValue, Byte image, long numberOfHalls) {
-        super(lessor, staff, matricule, name, address, description, surfaceArea, estimatedValue, image);
+            long surfaceArea, long estimatedValue, Byte[] image, long numberOfHalls, boolean isActive) {
+        super(lessor, staff, matricule, name, address, description, surfaceArea, estimatedValue, image, isActive);
         this.numberOfHalls = numberOfHalls;
     }
 
@@ -28,9 +28,9 @@ public class Residence extends Asset {
 
     long numberOfHalls;
 
-    @Override
-    public String getAssetType() {
+    // @Override
+    // public String getAssetType() {
 
-        return "residence";
-    }
+    // return "residence";
+    // }
 }

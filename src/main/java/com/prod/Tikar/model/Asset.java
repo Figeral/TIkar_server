@@ -1,13 +1,16 @@
 package com.prod.Tikar.model;
 
+import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 
 import lombok.Getter;
@@ -24,7 +27,7 @@ public abstract class Asset {
 
    public Asset(Lessor lessor, Staff staff, int matricule, String name, String address, String description,
          long surfaceArea,
-         long estimatedValue, Byte image) {
+         long estimatedValue, Byte[] image, boolean isActive) {
       this.lessor = lessor;
       this.addedBy = staff;
       this.matricule = matricule;
@@ -34,7 +37,7 @@ public abstract class Asset {
       this.surfaceArea = surfaceArea;
       this.estimatedValue = estimatedValue;
       this.image = image;
-
+      this.isActive = isActive;
    };
 
    @ManyToOne
@@ -52,12 +55,18 @@ public abstract class Asset {
    @Column(nullable = true)
    String description;
    long surfaceArea;
-   long estimatedValue;
-   Byte image;
 
-   public String getAssetType() {
-      return "";
-   }
+   long estimatedValue;
+
+   @Lob
+   @Basic(fetch = FetchType.LAZY)
+   Byte[] image;
+
+   boolean isActive;
+
+   // public String getAssetType() {
+   // return "";
+   // }
 
    // todo: still have to implement the constructor, entity association with Renter
    // and Rent class

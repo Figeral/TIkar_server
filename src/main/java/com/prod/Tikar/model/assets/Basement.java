@@ -16,10 +16,15 @@ public class Basement {
     long id;
 
     long numberOfHalls;
-    BasementType type;
+    // BasementType type;
+    String type;
+    boolean isActive;
+    Building building;
 
-    public Basement(long numberOfHalls, BasementType type) {
+    public Basement(long numberOfHalls, BasementType type, boolean isActive, Building building) {
         this.numberOfHalls = numberOfHalls;
-        this.type = type;
+        this.type = type.name();
+        this.isActive = isActive;
+        this.building = building;
     }
 }

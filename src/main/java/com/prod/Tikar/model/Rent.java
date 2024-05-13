@@ -11,6 +11,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+
 public class Rent {
 
   @Id
@@ -26,13 +27,15 @@ public class Rent {
 
   @ManyToOne
   Renter renter;
+  boolean isActive;
 
-  public Rent(Date startDate, Date endDate, long cost, Renter renter, List<Asset> asset) {
+  public Rent(Date startDate, Date endDate, long cost, Renter renter, List<Asset> asset, boolean isActive) {
     this.EndArt = endDate;
     this.startAt = startDate;
     this.cost = cost;
     this.renter = renter;
     this.asset = asset;
+    this.isActive = isActive;
   }
   // todo: still have to implement the constructor, entity association with Renter
   // and Asset abstract class
