@@ -37,6 +37,7 @@ public class Renter {
 
     @OneToMany
     List<Rent> rent;
+
     boolean isActive;
     // todo: still have to implement the constructor, entity association with Rent
     // and Asset abstract class

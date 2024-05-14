@@ -22,7 +22,7 @@ import lombok.Setter;
 @Setter
 public abstract class Asset {
    @Id
-   @GeneratedValue(strategy = GenerationType.AUTO)
+   @GeneratedValue(strategy = GenerationType.TABLE)
    long id;
 
    public Asset(Lessor lessor, Staff staff, int matricule, String name, String address, String description,
@@ -33,6 +33,18 @@ public abstract class Asset {
       this.matricule = matricule;
       this.name = name;
       this.address = address;
+      this.description = description;
+      this.surfaceArea = surfaceArea;
+      this.estimatedValue = estimatedValue;
+      this.image = image;
+      this.isActive = isActive;
+   };
+
+   public Asset(Lessor lessor, Staff staff, String description,
+         long surfaceArea,
+         long estimatedValue, Byte[] image, boolean isActive) {
+      this.lessor = lessor;
+      this.addedBy = staff;
       this.description = description;
       this.surfaceArea = surfaceArea;
       this.estimatedValue = estimatedValue;
@@ -60,6 +72,7 @@ public abstract class Asset {
 
    @Lob
    @Basic(fetch = FetchType.LAZY)
+   @Column(nullable = true)
    Byte[] image;
 
    boolean isActive;

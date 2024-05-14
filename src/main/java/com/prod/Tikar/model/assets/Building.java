@@ -10,9 +10,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
+
 @Setter
 @Getter
-@Entity
 public class Building extends Asset {
     public Building(Lessor lessor, Staff staff, int matricule, String name, String address, String description,
             long surfaceArea, long estimatedValue, Byte[] image, long numberOfFloors,
@@ -26,7 +27,7 @@ public class Building extends Asset {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
 
-    @OneToMany
+    @OneToMany(mappedBy = "building")
     List<Basement> basement;
 
     long numberOfFloors;

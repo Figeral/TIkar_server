@@ -27,6 +27,7 @@ public class Rent {
 
   @ManyToOne
   Renter renter;
+
   boolean isActive;
 
   public Rent(Date startDate, Date endDate, long cost, Renter renter, List<Asset> asset, boolean isActive) {
