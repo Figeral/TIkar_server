@@ -58,17 +58,19 @@ public class TikarsarlApplication implements CommandLineRunner {
 			"Makepe", "maison a trois niveeau", 5265,
 			50000000, null, 3, true);
 
-	// List<Asset> basement = List
-	// .of(new Basement(5, BasementType.Appartement_vide, true, building,
-	// "apartement", 80000, 120000, null, lessor, staff));
-	Asset basement = new Basement(5, BasementType.Appartement_vide, true,
-			building,
-			"apartement", 80000, 120000, null, lessor, staff);
-	Asset basement1 = new Basement(5, BasementType.Appartement_vide, true,
-			building,
-			"apartement", 80000, 120000, null, lessor, staff);
+	List<Asset> basement = List
+			.of(new Basement(5, BasementType.Appartement_vide, true, building,
+					"apartement", 80000, 120000, null, lessor, staff),
+					new Basement(5, BasementType.Appartement_Meubler, true, building,
+							"apartement meubler de reve", 80000, 150000, null, lessor, staff));
+	// Asset basement = new Basement(5, BasementType.Appartement_vide, true,
+	// building,
+	// "apartement", 80000, 120000, null, lessor, staff);
+	// Asset basement1 = new Basement(5, BasementType.Appartement_vide, true,
+	// building,
+	// "apartement", 80000, 120000, null, lessor, staff);
 	Renter renter = new Renter("Manore", "Manore", 655154835, null, true);
-	Rent rent = new Rent(null, null, 2000, renter, basement1, true);
+	Rent rent = new Rent(null, null, 2000, renter, residence, true);
 
 	Rent rent1 = new Rent(null, null, 2000, renter, basement, false);
 
@@ -93,8 +95,8 @@ public class TikarsarlApplication implements CommandLineRunner {
 		lessorRepo.save(lessor);
 		assetRepo.save(building);
 		assetRepo.saveAll(residence);
-		assetRepo.save(basement1);
-		assetRepo.save(basement);
+		// assetRepo.save(basement1);
+		assetRepo.saveAll(basement);
 		renterRepo.save(renter);
 		rentRepo.save(rent1);
 		rentRepo.save(rent);

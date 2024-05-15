@@ -22,16 +22,16 @@ public class Rent {
   Date EndArt;
   long cost;
 
-  @ManyToOne
-  // List<Asset> asset;
-  Asset asset;
+  @OneToMany
+  List<Asset> asset;
+  // Asset asset;
   @ManyToOne
   Renter renter;
 
   boolean isActive;
 
   public Rent(Date startDate, Date endDate, long cost, Renter renter,
-      Asset asset, boolean isActive) {
+      List<Asset> asset, boolean isActive) {
 
     // public Rent(Date startDate, Date endDate, long cost, Renter renter, Asset
     // asset, boolean isActive) {

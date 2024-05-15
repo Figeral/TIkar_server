@@ -68,8 +68,8 @@ public abstract class Asset {
    String name;
    String address;
 
-   @OneToMany
-   List<Rent> rent;
+   // @OneToMany
+   // List<Rent> rent;
 
    @Column(nullable = true)
    String description;
@@ -89,5 +89,4 @@ public abstract class Asset {
 
    // todo: still have to implement the constructor, entity association with Renter
    // and Rent class
-
 }
