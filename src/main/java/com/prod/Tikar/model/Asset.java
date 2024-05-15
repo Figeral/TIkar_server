@@ -55,7 +55,7 @@ public abstract class Asset {
       this.image = image;
       this.isActive = isActive;
    };
-
+public Asset(){}
    @ManyToOne
    Lessor lessor;
 

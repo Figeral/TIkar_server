@@ -26,6 +26,8 @@ public class Renter {
         this.isActive = isActive;
     }
 
+public Renter(){}
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;

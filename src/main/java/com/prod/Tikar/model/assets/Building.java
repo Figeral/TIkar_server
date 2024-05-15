@@ -23,6 +23,9 @@ public class Building extends Asset {
         this.numberOfFloors = numberOfFloors;
     }
 
+public Building() {
+        super();
+    }
     // @Id
     // @GeneratedValue(strategy = GenerationType.IDENTITY)
     // long id;

@@ -42,6 +42,7 @@ public class Rent {
     this.asset = asset;
     this.isActive = isActive;
   }
+public Rent(){}
   // todo: still have to implement the constructor, entity association with Renter
   // and Asset abstract class
 }

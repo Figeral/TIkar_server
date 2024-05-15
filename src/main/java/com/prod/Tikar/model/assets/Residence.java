@@ -19,6 +19,9 @@ public class Residence extends Asset {
         this.numberOfHalls = numberOfHalls;
     }
 
+public Residence() {
+        super();
+    }
     // @Id
     // @GeneratedValue(strategy = GenerationType.IDENTITY)
     // long id;

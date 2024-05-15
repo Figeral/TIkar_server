@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.prod.Tikar.model.Asset;
@@ -19,6 +20,7 @@ import com.prod.Tikar.model.assets.BasementType;
 import com.prod.Tikar.model.assets.Building;
 import com.prod.Tikar.model.assets.Residence;
 import com.prod.Tikar.repository.AssetRepository;
+import com.prod.Tikar.repository.BuildRepository;
 // import com.prod.Tikar.repository.BasementRepository;
 // import com.prod.Tikar.repository.BuildRepository;
 import com.prod.Tikar.repository.LessorRepository;
@@ -28,6 +30,7 @@ import com.prod.Tikar.repository.RenterRepository;
 import com.prod.Tikar.repository.StaffRepository;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
 @SpringBootApplication
@@ -42,9 +45,10 @@ public class TikarsarlApplication implements CommandLineRunner {
 	LessorRepository lessorRepo;
 	@Autowired
 	StaffRepository staffRepo;
+	@Autowired
+	BuildRepository buildRepo;
 
-	Staff staff = new Staff("Nsangou", "Mouliom", "nsangoumouliom", 690462556,
-			null, StaffRole.Admin, true);
+	Staff staff = new Staff("Nsangou", "Mouliom", "nsangoumouliom", 690462556, null, StaffRole.Admin, true);
 	Lessor lessor = new Lessor("Emmauel", "Fitzgerard", 690462556, null, true);
 
 	List<Asset> residence = List.of(new Residence(lessor, staff, 6546515,
@@ -82,8 +86,8 @@ public class TikarsarlApplication implements CommandLineRunner {
 
 	}
 
-	@GetMapping("/")
-	public List<Asset> getMethodName() {
+	@GetMapping(value = "/asset")
+	public Iterable<Asset> getMethodName() {
 		return assetRepo.findAll();
 
 	}

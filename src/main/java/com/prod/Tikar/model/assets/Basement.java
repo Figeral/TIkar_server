@@ -42,4 +42,7 @@ public class Basement extends Asset {
         this.staff = staff;
     }
 
+    public Basement() {
+        super();
+    }
 }

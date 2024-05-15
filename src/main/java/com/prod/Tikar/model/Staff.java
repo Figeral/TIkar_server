@@ -30,7 +30,7 @@ public class Staff {
         this.role = role;
         this.isActive = isActive;
     }
-
+public Staff(){}
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long Id;

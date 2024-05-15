@@ -40,4 +40,5 @@ public class Lessor {
         this.isActive = isActive;
     }
 
+public Lessor(){}
 }
