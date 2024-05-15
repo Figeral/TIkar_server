@@ -1,5 +1,6 @@
 package com.prod.Tikar.model.assets;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.prod.Tikar.model.Asset;
 import com.prod.Tikar.model.Lessor;
 import com.prod.Tikar.model.Staff;
@@ -13,22 +14,18 @@ import lombok.Setter;
 @Setter
 @Entity
 public class Basement extends Asset {
-    // @Id
-    // @GeneratedValue(strategy = GenerationType.IDENTITY)
-    // long id;
 
     long numberOfHalls;
-    // BasementType type;
+
     String type;
     boolean isActive;
 
+    @JsonIgnore
     @ManyToOne
     Building building;
-    @ManyToOne
-    Lessor lessor;
 
     @ManyToOne
-    Staff staff;
+    Lessor lessor;
 
     public Basement(long numberOfHalls, BasementType type, boolean isActive, Building building, String description,
             int surfaceArea, long estimatedValue, Byte[] image, Lessor lessor, Staff staff) {
@@ -39,7 +36,7 @@ public class Basement extends Asset {
         this.isActive = isActive;
         this.building = building;
         this.lessor = lessor;
-        this.staff = staff;
+
     }
 
     public Basement() {

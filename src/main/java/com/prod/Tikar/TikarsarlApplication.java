@@ -20,6 +20,7 @@ import com.prod.Tikar.model.assets.BasementType;
 import com.prod.Tikar.model.assets.Building;
 import com.prod.Tikar.model.assets.Residence;
 import com.prod.Tikar.repository.AssetRepository;
+import com.prod.Tikar.repository.BasementRepository;
 import com.prod.Tikar.repository.BuildRepository;
 // import com.prod.Tikar.repository.BasementRepository;
 // import com.prod.Tikar.repository.BuildRepository;
@@ -27,6 +28,7 @@ import com.prod.Tikar.repository.LessorRepository;
 //import com.prod.Tikar.repository.BasementRepository;
 import com.prod.Tikar.repository.RentRepository;
 import com.prod.Tikar.repository.RenterRepository;
+import com.prod.Tikar.repository.ResidenceRepository;
 import com.prod.Tikar.repository.StaffRepository;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,36 +49,28 @@ public class TikarsarlApplication implements CommandLineRunner {
 	StaffRepository staffRepo;
 	@Autowired
 	BuildRepository buildRepo;
-
+	@Autowired
+	BasementRepository basementRepo;
+	@Autowired
+	ResidenceRepository residenceRepo;
 	Staff staff = new Staff("Nsangou", "Mouliom", "nsangoumouliom", 690462556, null, StaffRole.Admin, true);
 	Lessor lessor = new Lessor("Emmauel", "Fitzgerard", 690462556, null, true);
 
-	List<Asset> residence = List.of(new Residence(lessor, staff, 6546515,
-			"Browtnown villa",
-			"Bonamoussadi", "", 1654, 60000000, null, 7, true),
-			new Residence(lessor, staff, 6546515,
-					" Black town",
-					"Akwa", "", 1645, 4400000, null, 12, true));
-
-	Building building = new Building(lessor, staff, 216525, "Maison des Rois",
-			"Makepe", "maison a trois niveeau", 5265,
+	Asset residence = new Residence(lessor, staff, 6546515,
+			" Black town",
+			"Akwa", "", 1645, 4400000, null, 12, true);
+	Building building = new Building(lessor, staff, 216525, "Maison des Rois", "Makepe", "maison a trois niveeau", 5265,
 			50000000, null, 3, true);
 
-	List<Asset> basement = List
-			.of(new Basement(5, BasementType.Appartement_vide, true, building,
-					"apartement", 80000, 120000, null, lessor, staff),
-					new Basement(5, BasementType.Appartement_Meubler, true, building,
-							"apartement meubler de reve", 80000, 150000, null, lessor, staff));
-	// Asset basement = new Basement(5, BasementType.Appartement_vide, true,
-	// building,
-	// "apartement", 80000, 120000, null, lessor, staff);
-	// Asset basement1 = new Basement(5, BasementType.Appartement_vide, true,
-	// building,
-	// "apartement", 80000, 120000, null, lessor, staff);
-	Renter renter = new Renter("Manore", "Manore", 655154835, null, true);
-	Rent rent = new Rent(null, null, 2000, renter, residence, true);
+	Asset basement = new Basement(5, BasementType.Appartement_vide, true,
+			building,
+			"apartement", 80000, 120000, null, lessor, staff);
 
-	Rent rent1 = new Rent(null, null, 2000, renter, basement, false);
+	Renter renter = new Renter("Manore", "Manore", 655154835, null, true);
+	Rent rent = new Rent(null, null, 645000, renter, residence, true);
+
+	Rent rent1 = new Rent(null, null, 145000, renter, basement, false);
+	List<Rent> r = List.of(rent, rent1);
 
 	@Autowired
 	public
@@ -87,8 +81,8 @@ public class TikarsarlApplication implements CommandLineRunner {
 	}
 
 	@GetMapping(value = "/asset")
-	public Iterable<Asset> getMethodName() {
-		return assetRepo.findAll();
+	public List<Rent> getMethodName() {
+		return rentRepo.findAll();
 
 	}
 
@@ -98,12 +92,11 @@ public class TikarsarlApplication implements CommandLineRunner {
 		staffRepo.save(staff);
 		lessorRepo.save(lessor);
 		assetRepo.save(building);
-		assetRepo.saveAll(residence);
-		// assetRepo.save(basement1);
-		assetRepo.saveAll(basement);
-		renterRepo.save(renter);
-		rentRepo.save(rent1);
-		rentRepo.save(rent);
-	}
+		assetRepo.save(residence);
 
+		assetRepo.save(basement);
+		renterRepo.save(renter);
+		rentRepo.saveAll(r);
+		// rentRepo.save(rent);
+	}
 }

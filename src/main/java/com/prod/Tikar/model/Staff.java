@@ -1,7 +1,5 @@
 package com.prod.Tikar.model;
 
-import java.util.List;
-
 import jakarta.persistence.*;
 
 import lombok.Getter;
@@ -23,14 +21,14 @@ public class Staff {
         this.password = password;
         this.tel = tel;
         this.picture = picture;
-        // this.isAdmin = isAdmin;
-        // this.isManagement = isManagement;
-        // this.isExtern = isExtern;
-        // this.assets = assets;
+
         this.role = role;
         this.isActive = isActive;
     }
-public Staff(){}
+
+    public Staff() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long Id;
@@ -47,14 +45,11 @@ public Staff(){}
     Byte[] picture;
 
     boolean isActive;
-    // Boolean isAdmin;
-    // Boolean isManagement;
-    // Boolean isExtern;
+
     StaffRole role;
 
-    @OneToMany
-    @Column(nullable = true)
-    List<Asset> assets;
+    // @OneToMany
+    // @Column(nullable = true)
+    // List<Asset> assets;
 
-    // public abstract String getStaffType();
 }

@@ -1,7 +1,5 @@
 package com.prod.Tikar.model;
 
-import java.util.List;
-
 import jakarta.persistence.Basic;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -9,7 +7,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
-import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,7 +23,8 @@ public class Renter {
         this.isActive = isActive;
     }
 
-public Renter(){}
+    public Renter() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,8 +35,8 @@ public Renter(){}
     @Basic(fetch = FetchType.LAZY)
     Byte[] picture;
 
-    @OneToMany
-    List<Rent> rent;
+    // @OneToMany
+    // List<Rent> rent;
 
     boolean isActive;
     // todo: still have to implement the constructor, entity association with Rent

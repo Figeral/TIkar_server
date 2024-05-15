@@ -1,7 +1,5 @@
 package com.prod.Tikar.model;
 
-import java.util.List;
-
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,7 +12,6 @@ import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -55,7 +52,10 @@ public abstract class Asset {
       this.image = image;
       this.isActive = isActive;
    };
-public Asset(){}
+
+   public Asset() {
+   }
+
    @ManyToOne
    Lessor lessor;
 
@@ -83,10 +83,6 @@ public Asset(){}
 
    boolean isActive;
 
-   // public String getAssetType() {
-   // return "";
-   // }
-
    // todo: still have to implement the constructor, entity association with Renter
-   // and Rent class
+
 }
