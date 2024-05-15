@@ -22,15 +22,19 @@ public class Rent {
   Date EndArt;
   long cost;
 
-  @OneToMany
-  List<Asset> asset;
-
+  @ManyToOne
+  // List<Asset> asset;
+  Asset asset;
   @ManyToOne
   Renter renter;
 
   boolean isActive;
 
-  public Rent(Date startDate, Date endDate, long cost, Renter renter, List<Asset> asset, boolean isActive) {
+  public Rent(Date startDate, Date endDate, long cost, Renter renter,
+      Asset asset, boolean isActive) {
+
+    // public Rent(Date startDate, Date endDate, long cost, Renter renter, Asset
+    // asset, boolean isActive) {
     this.EndArt = endDate;
     this.startAt = startDate;
     this.cost = cost;

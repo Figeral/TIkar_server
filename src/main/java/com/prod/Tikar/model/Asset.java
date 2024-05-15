@@ -1,5 +1,7 @@
 package com.prod.Tikar.model;
 
+import java.util.List;
+
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,7 +14,7 @@ import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
-
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,9 +22,11 @@ import lombok.Setter;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Getter
 @Setter
+// @MappedSuperclass
 public abstract class Asset {
    @Id
    @GeneratedValue(strategy = GenerationType.TABLE)
+
    long id;
 
    public Asset(Lessor lessor, Staff staff, int matricule, String name, String address, String description,
@@ -64,10 +68,12 @@ public abstract class Asset {
    String name;
    String address;
 
+   @OneToMany
+   List<Rent> rent;
+
    @Column(nullable = true)
    String description;
    long surfaceArea;
-
    long estimatedValue;
 
    @Lob

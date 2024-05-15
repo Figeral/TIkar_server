@@ -5,9 +5,6 @@ import com.prod.Tikar.model.Lessor;
 import com.prod.Tikar.model.Staff;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,9 +13,9 @@ import lombok.Setter;
 @Setter
 @Entity
 public class Basement extends Asset {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    // @Id
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // long id;
 
     long numberOfHalls;
     // BasementType type;
@@ -44,4 +41,5 @@ public class Basement extends Asset {
         this.lessor = lessor;
         this.staff = staff;
     }
+
 }

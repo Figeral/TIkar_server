@@ -5,9 +5,6 @@ import com.prod.Tikar.model.Lessor;
 import com.prod.Tikar.model.Staff;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,9 +19,9 @@ public class Residence extends Asset {
         this.numberOfHalls = numberOfHalls;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    // @Id
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // long id;
 
     long numberOfHalls;
 

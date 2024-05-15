@@ -1,7 +1,6 @@
 package com.prod.Tikar;
 
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -50,20 +49,30 @@ public class TikarsarlApplication implements CommandLineRunner {
 
 	List<Asset> residence = List.of(new Residence(lessor, staff, 6546515,
 			"Browtnown villa",
-			"Bonamoussadi", "", 1654, 60000000, null, 7, true));
+			"Bonamoussadi", "", 1654, 60000000, null, 7, true),
+			new Residence(lessor, staff, 6546515,
+					" Black town",
+					"Akwa", "", 1645, 4400000, null, 12, true));
 
 	Building building = new Building(lessor, staff, 216525, "Maison des Rois",
 			"Makepe", "maison a trois niveeau", 5265,
 			50000000, null, 3, true);
 
-	List<Asset> basement = List
-			.of(new Basement(5, BasementType.Appartement_vide, true, building,
-					"apartement", 80000, 120000, null, lessor, staff));
-
+	// List<Asset> basement = List
+	// .of(new Basement(5, BasementType.Appartement_vide, true, building,
+	// "apartement", 80000, 120000, null, lessor, staff));
+	Asset basement = new Basement(5, BasementType.Appartement_vide, true,
+			building,
+			"apartement", 80000, 120000, null, lessor, staff);
+	Asset basement1 = new Basement(5, BasementType.Appartement_vide, true,
+			building,
+			"apartement", 80000, 120000, null, lessor, staff);
 	Renter renter = new Renter("Manore", "Manore", 655154835, null, true);
-	Rent rent = new Rent(null, null, 2000, renter, residence, false);
+	Rent rent = new Rent(null, null, 2000, renter, basement1, true);
+
 	Rent rent1 = new Rent(null, null, 2000, renter, basement, false);
 
+	@Autowired
 	public
 
 	static void main(String[] args) {
@@ -82,16 +91,13 @@ public class TikarsarlApplication implements CommandLineRunner {
 
 		staffRepo.save(staff);
 		lessorRepo.save(lessor);
-		assetRepo.saveAll(residence);
 		assetRepo.save(building);
-		assetRepo.saveAll(basement);
-
+		assetRepo.saveAll(residence);
+		assetRepo.save(basement1);
+		assetRepo.save(basement);
 		renterRepo.save(renter);
+		rentRepo.save(rent1);
 		rentRepo.save(rent);
-		// rentRepo.save(rent1);
-
-		// System.out.println("size is " + assetRepo.findAll().size());
-
 	}
 
 }

@@ -23,9 +23,9 @@ public class Building extends Asset {
         this.numberOfFloors = numberOfFloors;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    // @Id
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // long id;
 
     @OneToMany(mappedBy = "building")
     List<Basement> basement;
