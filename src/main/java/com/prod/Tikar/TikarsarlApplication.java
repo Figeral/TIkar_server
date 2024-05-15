@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.prod.Tikar.model.Asset;
@@ -22,17 +21,13 @@ import com.prod.Tikar.model.assets.Residence;
 import com.prod.Tikar.repository.AssetRepository;
 import com.prod.Tikar.repository.BasementRepository;
 import com.prod.Tikar.repository.BuildRepository;
-// import com.prod.Tikar.repository.BasementRepository;
-// import com.prod.Tikar.repository.BuildRepository;
 import com.prod.Tikar.repository.LessorRepository;
-//import com.prod.Tikar.repository.BasementRepository;
 import com.prod.Tikar.repository.RentRepository;
 import com.prod.Tikar.repository.RenterRepository;
 import com.prod.Tikar.repository.ResidenceRepository;
 import com.prod.Tikar.repository.StaffRepository;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
 @SpringBootApplication
