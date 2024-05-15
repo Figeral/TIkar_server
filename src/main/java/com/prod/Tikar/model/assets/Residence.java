@@ -13,13 +13,17 @@ import lombok.Setter;
 @Entity
 public class Residence extends Asset {
 
-    public Residence(Lessor lessor, Staff staff, int matricule, String name, String address, String description,
-            long surfaceArea, long estimatedValue, Byte[] image, long numberOfHalls, boolean isActive) {
-        super(lessor, staff, matricule, name, address, description, surfaceArea, estimatedValue, image, isActive);
+    public Residence(Lessor lessor, Staff staff, int matricule, String name, String address, String ville,
+            String description,
+            long surfaceArea, long estimatedValue, Byte[] image, long numberOfHalls, boolean isActive,
+            AssetType assetType) {
+        super(lessor, staff, matricule, name, address, description, description, surfaceArea, estimatedValue, image,
+                isActive,
+                assetType);
         this.numberOfHalls = numberOfHalls;
     }
 
-public Residence() {
+    public Residence() {
         super();
     }
     // @Id
@@ -28,9 +32,4 @@ public Residence() {
 
     long numberOfHalls;
 
-    // @Override
-    // public String getAssetType() {
-
-    // return "residence";
-    // }
 }

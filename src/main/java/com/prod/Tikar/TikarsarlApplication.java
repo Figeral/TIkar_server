@@ -14,6 +14,7 @@ import com.prod.Tikar.model.Rent;
 import com.prod.Tikar.model.Renter;
 import com.prod.Tikar.model.Staff;
 import com.prod.Tikar.model.StaffRole;
+import com.prod.Tikar.model.assets.AssetType;
 import com.prod.Tikar.model.assets.Basement;
 import com.prod.Tikar.model.assets.BasementType;
 import com.prod.Tikar.model.assets.Building;
@@ -53,13 +54,15 @@ public class TikarsarlApplication implements CommandLineRunner {
 
 	Asset residence = new Residence(lessor, staff, 6546515,
 			" Black town",
-			"Akwa", "", 1645, 4400000, null, 12, true);
-	Building building = new Building(lessor, staff, 216525, "Maison des Rois", "Makepe", "maison a trois niveeau", 5265,
-			50000000, null, 3, true);
+			"Akwa", "Douala", "", 1645, 4400000, null, 12, true, AssetType.Residence);
+	Building building = new Building(lessor, staff, 216525, "Maison des Rois", "Makepe", "Yaounde",
+			"maison a trois niveeau",
+			5265,
+			50000000, null, 3, true, AssetType.Building);
 
 	Asset basement = new Basement(5, BasementType.Appartement_vide, true,
 			building,
-			"apartement", 80000, 120000, null, lessor, staff);
+			"apartement", 80000, 120000, null, lessor, staff, AssetType.Basement);
 
 	Renter renter = new Renter("Manore", "Manore", 655154835, null, true);
 	Rent rent = new Rent(null, null, 645000, renter, residence, true);
@@ -76,8 +79,8 @@ public class TikarsarlApplication implements CommandLineRunner {
 	}
 
 	@GetMapping(value = "/asset")
-	public List<Rent> getMethodName() {
-		return rentRepo.findAll();
+	public List<Asset> getMethodName() {
+		return assetRepo.findAll();
 
 	}
 

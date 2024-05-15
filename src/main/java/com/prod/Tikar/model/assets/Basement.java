@@ -28,9 +28,9 @@ public class Basement extends Asset {
     Lessor lessor;
 
     public Basement(long numberOfHalls, BasementType type, boolean isActive, Building building, String description,
-            int surfaceArea, long estimatedValue, Byte[] image, Lessor lessor, Staff staff) {
+            int surfaceArea, long estimatedValue, Byte[] image, Lessor lessor, Staff staff, AssetType assetType) {
         super(lessor, staff, description, surfaceArea,
-                estimatedValue, image, isActive);
+                estimatedValue, image, isActive, assetType);
         this.numberOfHalls = numberOfHalls;
         this.type = type.name();
         this.isActive = isActive;

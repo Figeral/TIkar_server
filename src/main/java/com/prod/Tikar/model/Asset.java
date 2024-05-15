@@ -1,5 +1,7 @@
 package com.prod.Tikar.model;
 
+import com.prod.Tikar.model.assets.AssetType;
+
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,9 +28,10 @@ public abstract class Asset {
 
    long id;
 
-   public Asset(Lessor lessor, Staff staff, int matricule, String name, String address, String description,
+   public Asset(Lessor lessor, Staff staff, int matricule, String name, String address, String ville,
+         String description,
          long surfaceArea,
-         long estimatedValue, Byte[] image, boolean isActive) {
+         long estimatedValue, Byte[] image, boolean isActive, AssetType assetType) {
       this.lessor = lessor;
       this.addedBy = staff;
       this.matricule = matricule;
@@ -39,11 +42,13 @@ public abstract class Asset {
       this.estimatedValue = estimatedValue;
       this.image = image;
       this.isActive = isActive;
+      this.assetType = assetType.name();
+      this.ville = ville;
    };
 
    public Asset(Lessor lessor, Staff staff, String description,
          long surfaceArea,
-         long estimatedValue, Byte[] image, boolean isActive) {
+         long estimatedValue, Byte[] image, boolean isActive, AssetType assetType) {
       this.lessor = lessor;
       this.addedBy = staff;
       this.description = description;
@@ -51,6 +56,7 @@ public abstract class Asset {
       this.estimatedValue = estimatedValue;
       this.image = image;
       this.isActive = isActive;
+      this.assetType = assetType.name();
    };
 
    public Asset() {
@@ -70,7 +76,7 @@ public abstract class Asset {
 
    // @OneToMany
    // List<Rent> rent;
-
+   String ville;
    @Column(nullable = true)
    String description;
    long surfaceArea;
@@ -82,7 +88,7 @@ public abstract class Asset {
    Byte[] image;
 
    boolean isActive;
-
+   String assetType;
    // todo: still have to implement the constructor, entity association with Renter
 
 }

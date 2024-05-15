@@ -15,15 +15,18 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Building extends Asset {
-    public Building(Lessor lessor, Staff staff, int matricule, String name, String address, String description,
+    public Building(Lessor lessor, Staff staff, int matricule, String name, String address, String ville,
+            String description,
             long surfaceArea, long estimatedValue, Byte[] image, long numberOfFloors,
-            boolean isActive) {
-        super(lessor, staff, matricule, name, address, description, surfaceArea, estimatedValue, image, isActive);
+            boolean isActive, AssetType assetType) {
+        super(lessor, staff, matricule, name, address, description, description, surfaceArea, estimatedValue, image,
+                isActive,
+                assetType);
         // this.basement = basement;
         this.numberOfFloors = numberOfFloors;
     }
 
-public Building() {
+    public Building() {
         super();
     }
     // @Id
@@ -35,8 +38,4 @@ public Building() {
 
     long numberOfFloors;
 
-    // @Override
-    // public String getAssetType() {
-    // return "building";
-    // }
 }
