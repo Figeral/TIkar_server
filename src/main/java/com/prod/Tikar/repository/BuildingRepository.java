@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.prod.Tikar.model.assets.Building;
 
 @Repository
-public interface BuildRepository extends JpaRepository<Building, Long> {
+public interface BuildingRepository extends JpaRepository<Building, Long> {
 
 }

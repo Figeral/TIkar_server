@@ -23,19 +23,19 @@ public class Basement extends Asset {
     @JsonIgnore
     @ManyToOne
     Building building;
-
-    @ManyToOne
-    Lessor lessor;
+    // @JsonIgnore
+    // @ManyToOne
+    // Lessor lessor;
 
     public Basement(long numberOfHalls, BasementType type, boolean isActive, Building building, String description,
-            int surfaceArea, long estimatedValue, Byte[] image, Lessor lessor, Staff staff, AssetType assetType) {
-        super(lessor, staff, description, surfaceArea,
+            int surfaceArea, long estimatedValue, Byte[] image, Staff staff, AssetType assetType) {
+        super(staff, description, surfaceArea,
                 estimatedValue, image, isActive, assetType);
         this.numberOfHalls = numberOfHalls;
         this.type = type.name();
         this.isActive = isActive;
         this.building = building;
-        this.lessor = lessor;
+        // this.lessor = lessor;
 
     }
 

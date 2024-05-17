@@ -28,7 +28,7 @@ public abstract class Asset {
 
    long id;
 
-   public Asset(Lessor lessor, Staff staff, int matricule, String name, String address, String ville,
+   public Asset(Lessor lessor, Staff staff, Long matricule, String name, String address, String ville,
          String description,
          long surfaceArea,
          long estimatedValue, Byte[] image, boolean isActive, AssetType assetType) {
@@ -46,10 +46,10 @@ public abstract class Asset {
       this.ville = ville;
    };
 
-   public Asset(Lessor lessor, Staff staff, String description,
+   public Asset(Staff staff, String description,
          long surfaceArea,
          long estimatedValue, Byte[] image, boolean isActive, AssetType assetType) {
-      this.lessor = lessor;
+
       this.addedBy = staff;
       this.description = description;
       this.surfaceArea = surfaceArea;
@@ -70,13 +70,14 @@ public abstract class Asset {
    Staff addedBy;
 
    @Column(nullable = true)
-   int matricule; // keeping in mind that an id already uniquely identifies this entity
+   Long matricule; // keeping in mind that an id already uniquely identifies this entity
    String name;
    String address;
 
    // @OneToMany
    // List<Rent> rent;
    String ville;
+
    @Column(nullable = true)
    String description;
    long surfaceArea;

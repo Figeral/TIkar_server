@@ -13,11 +13,11 @@ import lombok.Setter;
 @Entity
 public class Residence extends Asset {
 
-    public Residence(Lessor lessor, Staff staff, int matricule, String name, String address, String ville,
+    public Residence(Lessor lessor, Staff staff, Long matricule, String name, String address, String ville,
             String description,
             long surfaceArea, long estimatedValue, Byte[] image, long numberOfHalls, boolean isActive,
             AssetType assetType) {
-        super(lessor, staff, matricule, name, address, description, description, surfaceArea, estimatedValue, image,
+        super(lessor, staff, matricule, name, address, ville, description, surfaceArea, estimatedValue, image,
                 isActive,
                 assetType);
         this.numberOfHalls = numberOfHalls;
@@ -31,5 +31,4 @@ public class Residence extends Asset {
     // long id;
 
     long numberOfHalls;
-
 }
