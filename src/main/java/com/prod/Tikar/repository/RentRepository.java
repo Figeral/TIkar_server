@@ -17,7 +17,7 @@ import com.prod.Tikar.model.Renter;
 public interface RentRepository extends JpaRepository<Rent, Long> {
     @Transactional
     @Modifying
-    @Query(value = "update rent set isActive= :active, asset_id= :asset.id , renter_id= :renter.id, cost= :cost, startAt= :startAt, endAt= :endAt where id= :index", nativeQuery = true)
+    @Query(value = "update rent set isActive= :active, asset_id= :asset.id , renter_id= :renter, cost= :cost, startAt= :startAt, endAt= :endAt where id= :index", nativeQuery = true)
     int updateRent(@Param(value = "index") int index,
             @Param(value = "active") boolean active,
             @Param(value = "asset") Asset asset,

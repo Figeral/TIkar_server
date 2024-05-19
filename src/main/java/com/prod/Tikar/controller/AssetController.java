@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.prod.Tikar.model.Asset;
 import com.prod.Tikar.repository.AssetRepository;
+import com.prod.Tikar.service.BasementService;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,7 +37,7 @@ public class AssetController {
         }
 
         @GetMapping("/asset")
-        public ResponseEntity<List<Asset>> getAssetsByCity(
+        public ResponseEntity<List<Asset>> getAssetsByParam(
                         @RequestParam(value = "ville", required = false) String ville,
                         @RequestParam(value = "lessor", required = false) String lessor,
                         @RequestParam(value = "addedBy", required = false) String addedBy,
@@ -71,8 +72,6 @@ public class AssetController {
                                 asset -> isActive != null &&
                                                 isActive == asset.isActive())
                                 .toList().forEach(assets::add);
-
-                // ps :primary types can't be null but their wrapper type can
 
                 return assets != null ? new ResponseEntity<>(assets, HttpStatus.OK)
                                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);

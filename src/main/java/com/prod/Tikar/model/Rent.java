@@ -22,7 +22,7 @@ public class Rent {
   long cost;
 
   // @JsonIgnore
-  @ManyToOne
+  @OneToOne
   Asset asset;
 
   @ManyToOne // List<Asset> asset;

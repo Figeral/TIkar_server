@@ -21,11 +21,10 @@ import lombok.Setter;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Getter
 @Setter
-// @MappedSuperclass
+
 public abstract class Asset {
    @Id
    @GeneratedValue(strategy = GenerationType.TABLE)
-
    long id;
 
    public Asset(Lessor lessor, Staff staff, Long matricule, String name, String address, String ville,
