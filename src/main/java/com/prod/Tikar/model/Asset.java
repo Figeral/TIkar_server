@@ -22,7 +22,7 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public abstract class Asset {
+public class Asset {
    @Id
    @GeneratedValue(strategy = GenerationType.TABLE)
    long id;

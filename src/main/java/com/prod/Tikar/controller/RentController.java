@@ -1,6 +1,5 @@
 package com.prod.Tikar.controller;
 
-import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -18,13 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.prod.Tikar.model.Asset;
 import com.prod.Tikar.model.Rent;
 import com.prod.Tikar.model.Renter;
-import com.prod.Tikar.model.assets.Basement;
-import com.prod.Tikar.model.assets.Building;
-import com.prod.Tikar.model.assets.Residence;
-import com.prod.Tikar.model.Rent;
+import com.prod.Tikar.repository.BuildingRepository;
 import com.prod.Tikar.repository.RentRepository;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
@@ -32,6 +27,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class RentController {
     @Autowired
     RentRepository rentRepo;
+
+    @Autowired
+    BuildingRepository buildingRepo;
 
     @GetMapping("/rents")
     public List<Rent> getAllRent() {
@@ -79,39 +77,20 @@ public class RentController {
         }
     }
 
-    @PutMapping("/rent/{id}")
-    public ResponseEntity<HttpStatus> putMethodName(@PathVariable int id, @RequestBody Rent newRent) throws Exception {
-        switch (newRent.getAsset()) {
-            case Building building -> {
-                rentRepo.updateRent(id, newRent.isActive(), newRent.getAsset(),
-                        newRent.getRenter(),
-                        newRent.getCost(),
-                        newRent.getStartAt(),
-                        newRent.getEndAt());
-
-                return new ResponseEntity<>(HttpStatus.ACCEPTED);
-            }
-            case Residence residence -> {
-                rentRepo.updateRent(id, newRent.isActive(), newRent.getAsset(),
-                        newRent.getRenter(),
-                        newRent.getCost(),
-                        newRent.getStartAt(),
-                        newRent.getEndAt());
-
-                return new ResponseEntity<>(HttpStatus.ACCEPTED);
-            }
-            case Basement basement -> {
-                rentRepo.updateRent(id, newRent.isActive(), newRent.getAsset(),
-                        newRent.getRenter(),
-                        newRent.getCost(),
-                        newRent.getStartAt(),
-                        newRent.getEndAt());
-
-                return new ResponseEntity<>(HttpStatus.ACCEPTED);
-            }
-            default -> throw new Exception("not able to update");
-        }
-    }
+    // @PutMapping("/rent/{id}")
+    // public ResponseEntity<HttpStatus> putMethodName(@PathVariable int id,
+    // @RequestBody Rent newRent) {
+    // if (newRent != null) {
+    // rentRepo.updateRent(id, newRent.isActive(), newRent.getAsset(),
+    // newRent.getRenter(),
+    // newRent.getCost(),
+    // newRent.getStartAt(),
+    // newRent.getEndAt());
+    // return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    // } else {
+    // return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+    // }
+    // }
 
     @DeleteMapping("/rent/{id}")
     public ResponseEntity<HttpStatus> DeleteMapping(@PathVariable(value = "id") long id) {

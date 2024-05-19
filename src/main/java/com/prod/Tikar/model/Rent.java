@@ -25,7 +25,7 @@ public class Rent {
   @OneToOne
   Asset asset;
 
-  @ManyToOne // List<Asset> asset;
+  @OneToOne // List<Asset> asset;
   Renter renter;
 
   boolean isActive;

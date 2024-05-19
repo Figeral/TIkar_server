@@ -82,7 +82,7 @@ public class TikarsarlApplication implements CommandLineRunner {
 
 	@GetMapping(value = "/error")
 	public String getMethodName() {
-		return "<h1> Page not found </h1>";
+		return "<h1> Page not found lol </h1>";
 
 	}
 

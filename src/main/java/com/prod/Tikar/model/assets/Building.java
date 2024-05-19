@@ -20,8 +20,7 @@ public class Building extends Asset {
             long surfaceArea, long estimatedValue, Byte[] image, long numberOfFloors,
             boolean isActive, AssetType assetType) {
         super(lessor, staff,
-                matricule
-        , name, address, ville, description, surfaceArea, estimatedValue, image,
+                matricule, name, address, ville, description, surfaceArea, estimatedValue, image,
                 isActive,
                 assetType);
         // this.basement = basement;
@@ -35,7 +34,7 @@ public class Building extends Asset {
     // @GeneratedValue(strategy = GenerationType.IDENTITY)
     // long id;
 
-    @OneToMany(mappedBy = "building")
+    @OneToMany(mappedBy = "building", cascade = CascadeType.ALL)
     List<Basement> basement;
 
     long numberOfFloors;

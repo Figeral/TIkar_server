@@ -34,4 +34,17 @@ public class BasementController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+    // @PutMapping("/renter/{id}")
+    // public ResponseEntity<HttpStatus> putMethodName(@PathVariable int id,
+    // @RequestBody Renter newRenter) {
+    // if (newRenter != null) {
+    // renterRepo.updateStaff(id, newRenter.isActive(), newRenter.getTel(),
+    // newRenter.getFname(),
+    // newRenter.getLname(),
+    // newRenter.getPicture());
+    // return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    // } else {
+    // return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+    // }
+    // }
 }
