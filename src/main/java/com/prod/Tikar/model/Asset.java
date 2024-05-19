@@ -57,6 +57,7 @@ public abstract class Asset {
       this.image = image;
       this.isActive = isActive;
       this.assetType = assetType.name();
+
    };
 
    public Asset() {

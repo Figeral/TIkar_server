@@ -1,6 +1,7 @@
 package com.prod.Tikar.model;
 
 import java.sql.*;
+
 import jakarta.persistence.*;
 
 import lombok.Getter;
@@ -17,7 +18,7 @@ public class Rent {
   long id;
 
   Date startAt;
-  Date EndArt;
+  Date EndAt;
   long cost;
 
   // @JsonIgnore
@@ -33,7 +34,7 @@ public class Rent {
   // List<Asset> asset, boolean isActive) {
 
   public Rent(Date startDate, Date endDate, long cost, Renter renter, Asset asset, boolean isActive) {
-    this.EndArt = endDate;
+    this.EndAt = endDate;
     this.startAt = startDate;
     this.cost = cost;
     this.renter = renter;

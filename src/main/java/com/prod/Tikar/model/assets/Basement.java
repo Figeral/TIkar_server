@@ -2,7 +2,7 @@ package com.prod.Tikar.model.assets;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.prod.Tikar.model.Asset;
-import com.prod.Tikar.model.Lessor;
+
 import com.prod.Tikar.model.Staff;
 
 import jakarta.persistence.Entity;

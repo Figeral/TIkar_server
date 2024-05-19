@@ -55,7 +55,7 @@ public class TikarsarlApplication implements CommandLineRunner {
 
 	Asset residence = new Residence(lessor, staff, 6546515L,
 			" Black town",
-			"Akwa", city[1], "", 1645, 4400000, null, 12, true, AssetType.Residence);
+			"Akwa", city[1], "", 1645, 4400000, null, 12, false, AssetType.Residence);
 	Building building = new Building(lessor, staff, 2165256L, "Maison des Rois", "Makepe", city[0],
 			"Immeuble a trois niveeau",
 			5265,

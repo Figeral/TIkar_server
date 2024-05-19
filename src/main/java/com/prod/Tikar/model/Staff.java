@@ -22,7 +22,7 @@ public class Staff {
         this.tel = tel;
         this.picture = picture;
 
-        this.role = role;
+        this.role = role.name();
         this.isActive = isActive;
     }
 
@@ -46,7 +46,7 @@ public class Staff {
 
     boolean isActive;
 
-    StaffRole role;
+    String role;
 
     // @OneToMany
     // @Column(nullable = true)
