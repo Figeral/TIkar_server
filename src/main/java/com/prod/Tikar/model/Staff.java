@@ -47,7 +47,7 @@ public class Staff {
     boolean isActive;
 
     String role;
-
+    
     // @OneToMany
     // @Column(nullable = true)
     // List<Asset> assets;
