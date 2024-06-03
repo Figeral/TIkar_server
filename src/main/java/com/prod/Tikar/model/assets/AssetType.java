@@ -1,7 +1,7 @@
 package com.prod.Tikar.model.assets;
 
 public enum AssetType {
-    Basement,
+Appartement,
     Residence,
     Building
 }

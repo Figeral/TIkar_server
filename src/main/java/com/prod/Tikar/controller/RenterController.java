@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.prod.Tikar.model.Renter;
-import com.prod.Tikar.model.Staff;
 import com.prod.Tikar.repository.RenterRepository;
 
 import org.springframework.web.bind.annotation.DeleteMapping;

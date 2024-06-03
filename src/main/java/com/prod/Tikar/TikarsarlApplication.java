@@ -61,8 +61,8 @@ public class TikarsarlApplication implements CommandLineRunner {
 			5265,
 			50000000, null, 3, true, AssetType.Building);
 
-	Basement basement = new Basement(5, BasementType.Appartement_vide, true, building, "apartement", 80000, 120000,
-			null, staff, AssetType.Basement);
+	Basement basement = new Basement(5, BasementType.vide, true, building, "apartement", 80000, 120000,
+			null, staff, AssetType.Appartement);
 
 	Renter renter = new Renter("Paco", "DE la plume", 655154835, null, true);
 	Renter renter1 = new Renter("Danielle", "Abib", 695123546, null, true);

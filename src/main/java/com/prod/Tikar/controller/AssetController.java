@@ -74,6 +74,21 @@ public class AssetController {
                                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
                 // TODO:create other types of get queries
         }
+@GetMapping("/assets/parent")
+public  ResponseEntity<List<Asset>> getMethodName() {
+        List<Asset> assets = new ArrayList<Asset>();
+        assetRepo.findAll().stream().filter(
+                asset ->  asset.getAssetType().contains("Building")
+                )
+                .toList().forEach(assets::add);
+       assetRepo.findAll().stream().filter(
+                asset ->  asset.getAssetType().contains("Residence")
+       ).toList().forEach(assets::add);
+       
+      return assets != null ? new ResponseEntity<>(assets, HttpStatus.OK)
+    : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+}
 
         @DeleteMapping("/asset/{id}")
         public ResponseEntity<HttpStatus> DeleteMapping(@PathVariable(value = "id") long id) {
