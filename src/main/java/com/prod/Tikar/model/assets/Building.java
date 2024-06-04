@@ -1,7 +1,5 @@
 package com.prod.Tikar.model.assets;
 
-import java.util.List;
-
 import com.prod.Tikar.model.Asset;
 import com.prod.Tikar.model.Lessor;
 import com.prod.Tikar.model.Staff;
@@ -23,7 +21,7 @@ public class Building extends Asset {
                 matricule, name, address, ville, description, surfaceArea, estimatedValue, image,
                 isActive,
                 assetType);
-        // this.basement = basement;
+
         this.numberOfFloors = numberOfFloors;
     }
 
@@ -33,9 +31,6 @@ public class Building extends Asset {
     // @Id
     // @GeneratedValue(strategy = GenerationType.IDENTITY)
     // long id;
-
-    @OneToMany(mappedBy = "building", cascade = CascadeType.ALL)
-    List<Basement> basement;
 
     long numberOfFloors;
 

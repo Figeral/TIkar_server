@@ -1,6 +1,5 @@
 package com.prod.Tikar.model.assets;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.prod.Tikar.model.Asset;
 import com.prod.Tikar.model.Staff;
 
@@ -15,16 +14,12 @@ import lombok.Setter;
 public class Basement extends Asset {
 
     long numberOfHalls;
-    // @JsonIgnore
+
     String type;
     boolean isActive;
 
-    @JsonIgnore
     @ManyToOne
     Building building;
-    // @JsonIgnore
-    // @ManyToOne
-    // Lessor lessor;
 
     public Basement(long numberOfHalls, BasementType type, boolean isActive, Building building, String description,
             int surfaceArea, long estimatedValue, Byte[] image, Staff staff, AssetType assetType) {
